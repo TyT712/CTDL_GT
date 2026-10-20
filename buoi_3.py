@@ -39,3 +39,15 @@ def loc_chan(Head):
         cur = cur.next
     return res
 display(loc_chan(Head))
+
+def loc_chan_de_quy(node):
+    if not node:
+        return
+    node.next = loc_chan_de_quy(node.next)
+    if node.val%2==0:
+        return node
+    return node.next
+A = Node()
+A.next = loc_chan_de_quy(Head.next)
+display(A)
+
